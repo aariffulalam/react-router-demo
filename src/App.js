@@ -9,6 +9,9 @@ import NoMatch from './component/NoMatch';
 import { Products } from './component/Products';
 import { FeaturedProducts } from './component/FeaturedProducts';
 import { NewProducts } from './component/NewProducts';
+import { Users } from './component/Users';
+import { UserDetails } from './component/UserDetails';
+import { Admin } from './component/Admin';
 
 
 function App() {
@@ -25,6 +28,12 @@ function App() {
           <Route path='featured' element={<FeaturedProducts/>}/>
           <Route path='new' element={<NewProducts/>}/>
         </Route>
+
+        <Route path='users' element={<Users/>}>
+          <Route path=':userId' element={<UserDetails/>} />  {/*userId will not be integer only it could be string also.*/}
+          <Route path='admin' element={<Admin/>}/> {/* react is so inteligent that in userId also can be admin but this component will be use not userDetails. */}
+        </Route>
+        
         <Route path='*' element={<NoMatch/>}/>
 
       </Routes>
